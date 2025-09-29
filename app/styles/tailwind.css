@@ -1,0 +1,301 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+/* --- Chillax Font --- */
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-Extralight.otf') format('opentype');
+  font-weight: 200; /* Extralight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-Light.otf') format('opentype');
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-Regular.otf') format('opentype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-Medium.otf') format('opentype');
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-Semibold.otf') format('opentype');
+  font-weight: 600; /* Semibold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chillax';
+  src: url('/fonts/Chillax-Bold.otf') format('opentype');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+:root {
+  /* Background and foreground */
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* Primary Colors - Exact from reference */
+  --primary-crimson: #D51717; /* D51717 - Crimson Red */
+  --primary-royal: #275AC7; /* 275AC7 - Royal Blue */
+  --primary-goldenrod: #E9A418; /* E9A418 - Goldenrod */
+  --primary-snow-white: #FAFAFA; /* FAFAFA - Snow White */
+  --primary-rich-black: #141414; /* 141414 - Rich Black */
+  
+  /* Crimson Red variants */
+  --crimson-soft: #D64040; /* D64040 - Soft Crimson */
+  --crimson-bright: #D61818; /* D61818 - Bright Crimson */
+  --crimson-deep: #B82121; /* B82121 - Deep Crimson */
+  
+  /* Royal Blue variants */
+  --royal-soft: #3C68C7; /* 3C68C7 - Soft Royal */
+  --royal-bright: #285AC7; /* 285AC7 - Bright Royal */
+  --royal-deep: #1649B8; /* 1649B8 - Deep Royal */
+  
+  /* Goldenrod variants */
+  --goldenrod-soft: #EBAC2F; /* EBAC2F - Soft Goldenrod */
+  --goldenrod-bright: #EBA417; /* EBA417 - Bright Goldenrod */
+  --goldenrod-deep: #CC9018; /* CC9018 - Deep Goldenrod */
+  
+  /* Gray scale - from reference */
+  --gray-100: #F6F6F6; /* 100 - #F6F6F6 */
+  --gray-200: #DADADA; /* 200 - #DADADA */
+  --gray-300: #BBBBBB; /* 300 - #BBBBBB */
+  --gray-400: #767676; /* 400 - #767676 */
+  --gray-500: #6D6D6D; /* 500 - #6D6D6D */
+  --gray-600: #525252; /* 600 - #525252 */
+  --gray-700: #3D3D3D; /* 700 - #3D3D3D */
+  --gray-800: #212121; /* 800 - #212121 */
+  
+  /* Overlay colors - from reference (with proper opacity) */
+  --overlay-light: rgba(255, 255, 255, 0.2); /* A200 - 20% opacity */
+  --overlay-medium: rgba(156, 163, 175, 0.3); /* A300 - 30% opacity */
+  --overlay-dark: rgba(55, 65, 81, 0.8); /* A800 - 80% opacity */
+  
+  /* Shadow colors - from reference */
+  --shadow-xs: #000000; /* xs */
+  --shadow-sm: #000000; /* sm */
+  --shadow-md: #000000; /* md */
+  --shadow-lg: #000000; /* lg */
+  --shadow-xl: #000000; /* xl */
+  
+  /* Semantic colors */
+  --success: #16a34a;
+  --success-foreground: #ffffff;
+  --warning: #d97706;
+  --warning-foreground: #ffffff;
+  --error: #dc2626;
+  --error-foreground: #ffffff;
+  --info: #2563eb;
+  --info-foreground: #ffffff;
+  
+  /* Border and input */
+  --border: #e5e7eb;
+  --input: #f9fafb;
+  --ring: #2563eb;
+  
+  /* Muted colors */
+  --muted: #f9fafb;
+  --muted-foreground: #6b7280;
+  
+  /* Card colors */
+  --card: #ffffff;
+  --card-foreground: #171717;
+  
+  /* Popover colors */
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+  
+  /* Typography */
+  --font-sans: 'Poppins', sans-serif;
+  --font-chillax: 'Chillax', sans-serif;
+}
+
+/* Base styles */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Font utilities */
+.font-chillax {
+  font-family: var(--font-chillax);
+}
+
+/* === PRIMARY COLORS === */
+/* Background Classes */
+.bg-primary-crimson { background-color: var(--primary-crimson); }
+.bg-primary-royal { background-color: var(--primary-royal); }
+.bg-primary-goldenrod { background-color: var(--primary-goldenrod); }
+.bg-primary-snow-white { background-color: var(--primary-snow-white); }
+.bg-primary-rich-black { background-color: var(--primary-rich-black); }
+
+/* Text Classes */
+.text-primary-crimson { color: var(--primary-crimson); }
+.text-primary-royal { color: var(--primary-royal); }
+.text-primary-goldenrod { color: var(--primary-goldenrod); }
+.text-primary-snow-white { color: var(--primary-snow-white); }
+.text-primary-rich-black { color: var(--primary-rich-black); }
+
+/* Border Classes */
+.border-primary-crimson { border-color: var(--primary-crimson); }
+.border-primary-royal { border-color: var(--primary-royal); }
+.border-primary-goldenrod { border-color: var(--primary-goldenrod); }
+.border-primary-snow-white { border-color: var(--primary-snow-white); }
+.border-primary-rich-black { border-color: var(--primary-rich-black); }
+
+/* === CRIMSON RED VARIANTS === */
+/* Background Classes */
+.bg-crimson-soft { background-color: var(--crimson-soft); }
+.bg-crimson-bright { background-color: var(--crimson-bright); }
+.bg-crimson-deep { background-color: var(--crimson-deep); }
+
+/* Text Classes */
+.text-crimson-soft { color: var(--crimson-soft); }
+.text-crimson-bright { color: var(--crimson-bright); }
+.text-crimson-deep { color: var(--crimson-deep); }
+
+/* Border Classes */
+.border-crimson-soft { border-color: var(--crimson-soft); }
+.border-crimson-bright { border-color: var(--crimson-bright); }
+.border-crimson-deep { border-color: var(--crimson-deep); }
+
+/* === ROYAL BLUE VARIANTS === */
+/* Background Classes */
+.bg-royal-soft { background-color: var(--royal-soft); }
+.bg-royal-bright { background-color: var(--royal-bright); }
+.bg-royal-deep { background-color: var(--royal-deep); }
+
+/* Text Classes */
+.text-royal-soft { color: var(--royal-soft); }
+.text-royal-bright { color: var(--royal-bright); }
+.text-royal-deep { color: var(--royal-deep); }
+
+/* Border Classes */
+.border-royal-soft { border-color: var(--royal-soft); }
+.border-royal-bright { border-color: var(--royal-bright); }
+.border-royal-deep { border-color: var(--royal-deep); }
+
+/* === GOLDENROD VARIANTS === */
+/* Background Classes */
+.bg-goldenrod-soft { background-color: var(--goldenrod-soft); }
+.bg-goldenrod-bright { background-color: var(--goldenrod-bright); }
+.bg-goldenrod-deep { background-color: var(--goldenrod-deep); }
+
+/* Text Classes */
+.text-goldenrod-soft { color: var(--goldenrod-soft); }
+.text-goldenrod-bright { color: var(--goldenrod-bright); }
+.text-goldenrod-deep { color: var(--goldenrod-deep); }
+
+/* Border Classes */
+.border-goldenrod-soft { border-color: var(--goldenrod-soft); }
+.border-goldenrod-bright { border-color: var(--goldenrod-bright); }
+.border-goldenrod-deep { border-color: var(--goldenrod-deep); }
+
+/* === GRAY SCALE === */
+/* Background Classes */
+.bg-gray-100 { background-color: var(--gray-100); }
+.bg-gray-200 { background-color: var(--gray-200); }
+.bg-gray-300 { background-color: var(--gray-300); }
+.bg-gray-400 { background-color: var(--gray-400); }
+.bg-gray-500 { background-color: var(--gray-500); }
+.bg-gray-600 { background-color: var(--gray-600); }
+.bg-gray-700 { background-color: var(--gray-700); }
+.bg-gray-800 { background-color: var(--gray-800); }
+
+/* Text Classes */
+.text-gray-100 { color: var(--gray-100); }
+.text-gray-200 { color: var(--gray-200); }
+.text-gray-300 { color: var(--gray-300); }
+.text-gray-400 { color: var(--gray-400); }
+.text-gray-500 { color: var(--gray-500); }
+.text-gray-600 { color: var(--gray-600); }
+.text-gray-700 { color: var(--gray-700); }
+.text-gray-800 { color: var(--gray-800); }
+
+/* Border Classes */
+.border-gray-100 { border-color: var(--gray-100); }
+.border-gray-200 { border-color: var(--gray-200); }
+.border-gray-300 { border-color: var(--gray-300); }
+.border-gray-400 { border-color: var(--gray-400); }
+.border-gray-500 { border-color: var(--gray-500); }
+.border-gray-600 { border-color: var(--gray-600); }
+.border-gray-700 { border-color: var(--gray-700); }
+.border-gray-800 { border-color: var(--gray-800); }
+
+/* === OVERLAY COLORS === */
+.bg-overlay-light { background-color: var(--overlay-light); }
+.bg-overlay-medium { background-color: var(--overlay-medium); }
+.bg-overlay-dark { background-color: var(--overlay-dark); }
+
+/* === SHADOW UTILITIES === */
+.shadow-xs { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+.shadow-sm { box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); }
+.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }
+.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); }
+.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+
+/* === SEMANTIC COLORS === */
+/* Success */
+.bg-success { background-color: var(--success); }
+.text-success { color: var(--success); }
+.border-success { border-color: var(--success); }
+
+/* Warning */
+.bg-warning { background-color: var(--warning); }
+.text-warning { color: var(--warning); }
+.border-warning { border-color: var(--warning); }
+
+/* Error */
+.bg-error { background-color: var(--error); }
+.text-error { color: var(--error); }
+.border-error { border-color: var(--error); }
+
+/* Info */
+.bg-info { background-color: var(--info); }
+.text-info { color: var(--info); }
+.border-info { border-color: var(--info); }
+
+/* === UTILITY CLASSES === */
+.bg-background { background-color: var(--background); }
+.bg-foreground { background-color: var(--foreground); }
+.text-background { color: var(--background); }
+.text-foreground { color: var(--foreground); }
+.border-background { border-color: var(--background); }
+.border-foreground { border-color: var(--foreground); }
+
+.bg-muted { background-color: var(--muted); }
+.text-muted { color: var(--muted-foreground); }
+.bg-card { background-color: var(--card); }
+.text-card { color: var(--card-foreground); }
+
+/* === HOVER AND FOCUS STATES === */
+.hover\:bg-primary-crimson:hover { background-color: var(--primary-crimson); }
+.hover\:bg-primary-royal:hover { background-color: var(--primary-royal); }
+.hover\:bg-primary-goldenrod:hover { background-color: var(--primary-goldenrod); }
+
+.focus\:border-primary-crimson:focus { border-color: var(--primary-crimson); }
+.focus\:border-primary-royal:focus { border-color: var(--primary-royal); }
+.focus\:border-primary-goldenrod:focus { border-color: var(--primary-goldenrod); }
+
+.hover\:text-primary-crimson:hover { color: var(--primary-crimson); }
+.hover\:text-primary-royal:hover { color: var(--primary-royal); }
+.hover\:text-primary-goldenrod:hover { color: var(--primary-goldenrod); }

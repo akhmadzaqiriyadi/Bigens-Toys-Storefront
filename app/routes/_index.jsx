@@ -2,6 +2,11 @@ import {Await, useLoaderData, Link} from 'react-router';
 import {Suspense} from 'react';
 import {Image} from '@shopify/hydrogen';
 import {ProductItem} from '~/components/ProductItem';
+import FeaturedProductSection from '~/components/FeaturedProductSection';
+import OurValuesSection from '~/components/OurValuesSection';
+import WhyChooseUsSection from '~/components/WhyChooseUsSection';
+import InfoBannerSection from '~/components/InfoBannerSection';
+import ProductOfferSection from '~/components/ProductOfferSection'; // Impor komponen baru
 
 /**
  * @type {MetaFunction}
@@ -14,24 +19,22 @@ export const meta = () => {
  * @param {LoaderFunctionArgs} args
  */
 export async function loader(args) {
-  // Start fetching non-critical data without blocking time to first byte
+  // Mulai mengambil data non-kritis tanpa memblokir time to first byte
   const deferredData = loadDeferredData(args);
 
-  // Await the critical data required to render initial state of the page
+  // Tunggu data kritis yang diperlukan untuk merender status awal halaman
   const criticalData = await loadCriticalData(args);
 
   return {...deferredData, ...criticalData};
 }
 
 /**
- * Load data necessary for rendering content above the fold. This is the critical data
- * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
+ * Muat data yang diperlukan untuk merender konten di atas lipatan.
  * @param {LoaderFunctionArgs}
  */
 async function loadCriticalData({context}) {
   const [{collections}] = await Promise.all([
     context.storefront.query(FEATURED_COLLECTION_QUERY),
-    // Add other queries here, so that they are loaded in parallel
   ]);
 
   return {
@@ -40,16 +43,13 @@ async function loadCriticalData({context}) {
 }
 
 /**
- * Load data for rendering content below the fold. This data is deferred and will be
- * fetched after the initial page load. If it's unavailable, the page should still 200.
- * Make sure to not throw any errors here, as it will cause the page to 500.
+ * Muat data untuk merender konten di bawah lipatan.
  * @param {LoaderFunctionArgs}
  */
 function loadDeferredData({context}) {
   const recommendedProducts = context.storefront
     .query(RECOMMENDED_PRODUCTS_QUERY)
     .catch((error) => {
-      // Log query errors, but don't throw them so the page can still render
       console.error(error);
       return null;
     });
@@ -65,15 +65,18 @@ export default function Homepage() {
   return (
     <div className="home">
       <FeaturedCollection collection={data.featuredCollection} />
+      <FeaturedProductSection />
+      <OurValuesSection />
+      <WhyChooseUsSection />
+      <InfoBannerSection />
+      <ProductOfferSection />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
   );
 }
 
 /**
- * @param {{
- *   collection: FeaturedCollectionFragment;
- * }}
+ * @param {{collection: FeaturedCollectionFragment;}}
  */
 function FeaturedCollection({collection}) {
   if (!collection) return null;
@@ -94,9 +97,7 @@ function FeaturedCollection({collection}) {
 }
 
 /**
- * @param {{
- *   products: Promise<RecommendedProductsQuery | null>;
- * }}
+ * @param {{products: Promise<RecommendedProductsQuery | null>;}}
  */
 function RecommendedProducts({products}) {
   return (
@@ -171,9 +172,3 @@ const RECOMMENDED_PRODUCTS_QUERY = `#graphql
     }
   }
 `;
-
-/** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
-/** @template T @typedef {import('react-router').MetaFunction<T>} MetaFunction */
-/** @typedef {import('storefrontapi.generated').FeaturedCollectionFragment} FeaturedCollectionFragment */
-/** @typedef {import('storefrontapi.generated').RecommendedProductsQuery} RecommendedProductsQuery */
-/** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
